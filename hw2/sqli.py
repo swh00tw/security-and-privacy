@@ -42,7 +42,7 @@ def sqli_attack(username):
         password += nextChar
 
 def main():
-    ans = sqli_attack("frank")
+    ans = sqli_attack("admin")
     print(ans)
 
 if __name__ == "__main__":
