@@ -27,7 +27,7 @@ class Encryption(object):
         # padder = padding.PKCS7(ciphers.algorithms.AES.block_size).padder()
         # padded_msg = padder.update(msg) + padder.finalize()
 
-        print("Encrypting: ", msg)
+        # print("Encrypting: ", msg)
         iv = os.urandom(self._block_size_bytes)
         encryptor = ciphers.Cipher(ciphers.algorithms.AES(self._key),
                                    ciphers.modes.GCM(iv),
@@ -47,7 +47,7 @@ class Encryption(object):
         try:
             # msg = unpadder.update(padded_msg) + unpadder.finalize()
             msg = decryptor.update(ctx) + decryptor.finalize()
-            print("Decrypted: ", msg)
+            # print("Decrypted: ", msg)
             return msg  # Successful decryption
         except ValueError:
             return False  # Error!!
